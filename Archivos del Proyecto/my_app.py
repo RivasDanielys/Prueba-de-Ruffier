@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import (
 )
 
 from instr import *
+from second_win import *
 
 class MainWin(QWidget):
     def __init__(self):
@@ -15,6 +16,7 @@ class MainWin(QWidget):
 
         self.set_appear()
         self.initUI()
+        self.connects()
 
         self.show()
 
@@ -36,6 +38,12 @@ class MainWin(QWidget):
         self.setWindowTitle(txt_title)
         self.resize(win_width,win_height)
 
+    def next_click(self):
+        self.tw = TestWin()
+        self.hide()
+
+    def connects(self):
+         self.btn_next.clicked.connect(self.next_click)
 
 
 def main():
